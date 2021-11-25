@@ -1,0 +1,24 @@
+<h1 class="mt-5">Selectores anidados</h1>
+<hr>
+
+<form [formGroup]="myForm" (ngSubmit)="save()">
+    <div class="row mb-3">
+        <div class="col">
+            <label class="form-label">Continente:</label>
+            <select class="form-control" formControlName="region">
+                <option value="">-- Seleccionar continente --</option>
+                <option *ngFor="let region of regions" [value]="region.toLowerCase()">{{ region }}</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <button type="submit" class="btn btn-primary float-end">Guardar</button>
+        </div>
+    </div>
+</form>
+
+<h3>Formulario</h3>
+<pre>Valid: {{ myForm.valid}}</pre>
+<pre>{{ myForm.value | json}}</pre>
