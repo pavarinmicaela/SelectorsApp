@@ -6,9 +6,37 @@
         <div class="col">
             <label class="form-label">Continente:</label>
             <select class="form-control" formControlName="region">
-                <option value="">-- Seleccionar continente --</option>
+                <option value="">Seleccionar continente</option>
                 <option *ngFor="let region of regions" [value]="region.toLowerCase()">{{ region }}</option>
             </select>
+        </div>
+    </div>
+
+    <div class="row mb-3" *ngIf="countries.length > 0">
+        <div class="col">
+            <label class="form-label">Paises:</label>
+            <select class="form-control" formControlName="country">
+                <option value="">Seleccionar país</option>
+                <option *ngFor="let country of countries" [value]="country.fifa">{{ country.name.common }}</option>
+            </select>
+        </div>
+    </div>
+    
+    <div class="row mb-3" *ngIf="borders.length > 0">
+        <div class="col">
+            <label class="form-label">Fronteras:</label>
+            <select class="form-control" formControlName="border">
+                <option value="">Seleccionar frontera</option>
+                <option *ngFor="let border of borders" [value]="border">{{ border }}</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="loading">
+        <div class="col">
+            <div class="alert alert-primary">
+                Cargando...
+            </div>
         </div>
     </div>
 
